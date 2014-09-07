@@ -17,15 +17,6 @@ class RMPhotoCollectionViewController: UICollectionViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    FBRequestConnection.startWithGraphPath("/\(self.albumId)/photos", completionHandler: { (connection, result, error) -> Void in
-      if error != nil {
-        println(error)
-        return
-      }
-      println(result)
-      self.photosMetadata = result.valueForKey("data") as [[String:AnyObject]]
-      self.collectionView!.reloadData()
-    })
     
   }
   
@@ -56,27 +47,5 @@ class RMPhotoCollectionViewController: UICollectionViewController {
     
     return cell
   }
-  
-//
-//  override func collectionView(collectionView: UICollectionView, numberOfItemsInSection:(NSInteger)section {
-//  return recipeImages.count;
-//  }
-//  
-//  
-//  - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-//  static NSString *identifier = @"Cell";
-//  
-//  UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-//  
-//  UIImageView *recipeImageView = (UIImageView *)[cell viewWithTag:100];
-//  recipeImageView.image = [UIImage imageNamed:[recipeImages objectAtIndex:indexPath.row]];
-//  
-//  return cell;
-//  }
-  
-  
-  
-  
-  
   
 }

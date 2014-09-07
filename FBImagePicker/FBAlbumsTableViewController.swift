@@ -11,6 +11,7 @@ import UIKit
 class FBAlbumsTableViewController: UITableViewController {
   
   var albumsMetadata: [[String:AnyObject]] = []
+  var selectedAlbumPhotosMetadata: [[String:AnyObject]] = []
   var selectedAlbumId: String = ""
   var placeHolderImage: UIImage = UIImage()
   lazy var imageDownloader: RMImageDownloader = {
@@ -111,14 +112,36 @@ class FBAlbumsTableViewController: UITableViewController {
   }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    self.selectedAlbumId = self.albumsMetadata[indexPath.row]["id"]! as String
-    self.performSegueWithIdentifier("ALBUMS_TO_PHOTOS", sender: self)
+    
+    tableView.userInteractionEnabled = false
+    let albumId = self.albumsMetadata[indexPath.row]["id"]! as String
+    
+    let spinner = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
+    spinner.frame = CGRectMake(0, 0, 24, 24)
+    let cell = tableView.cellForRowAtIndexPath(indexPath)
+    let oldView = cell!.accessoryView
+    cell!.accessoryView = spinner;
+    spinner.startAnimating()
+    spinner.hidesWhenStopped = true
+    
+    FBRequestConnection.startWithGraphPath("/\(albumId)/photos", completionHandler: { (connection, result, error) -> Void in
+      spinner.stopAnimating()
+      tableView.userInteractionEnabled = true
+      cell!.accessoryView = oldView
+      if error != nil {
+        println(error)
+        return
+      }
+      println(result)
+      self.selectedAlbumPhotosMetadata = result.valueForKey("data") as [[String:AnyObject]]
+      self.performSegueWithIdentifier("ALBUMS_TO_PHOTOS", sender: self)
+    })
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
     if segue.identifier == "ALBUMS_TO_PHOTOS" {
       let vc = segue.destinationViewController as RMPhotoCollectionViewController
-      vc.albumId = self.selectedAlbumId
+      vc.photosMetadata = self.selectedAlbumPhotosMetadata
     }
   }
   
