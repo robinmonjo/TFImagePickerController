@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B24A21919BCC84500911E56 /* FBImageCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B24A21819BCC84500911E56 /* FBImageCollectionViewController.swift */; };
-		3B24A21B19BCEC7000911E56 /* FBUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B24A21A19BCEC7000911E56 /* FBUtil.swift */; };
-		3BE6C0DC19BC798200232B38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE6C0DB19BC798200232B38 /* AppDelegate.swift */; };
+		3B24A22319BCF0EF00911E56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B24A21D19BCF0EF00911E56 /* AppDelegate.swift */; };
+		3B24A22419BCF0EF00911E56 /* FBAlbumsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B24A21F19BCF0EF00911E56 /* FBAlbumsTableViewController.swift */; };
+		3B24A22519BCF0EF00911E56 /* FBImageCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B24A22019BCF0EF00911E56 /* FBImageCollectionViewController.swift */; };
+		3B24A22619BCF0EF00911E56 /* FBImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B24A22119BCF0EF00911E56 /* FBImageDownloader.swift */; };
+		3B24A22719BCF0EF00911E56 /* FBUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B24A22219BCF0EF00911E56 /* FBUtil.swift */; };
 		3BE6C0E119BC798200232B38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BE6C0DF19BC798200232B38 /* Main.storyboard */; };
 		3BE6C0E319BC798200232B38 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BE6C0E219BC798200232B38 /* Images.xcassets */; };
 		3BE6C0EF19BC798200232B38 /* FBImagePickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE6C0EE19BC798200232B38 /* FBImagePickerTests.swift */; };
-		3BE6C0F919BC7B1E00232B38 /* FBAlbumsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE6C0F819BC7B1E00232B38 /* FBAlbumsTableViewController.swift */; };
-		3BE6C0FC19BCA73600232B38 /* FBImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE6C0FB19BCA73600232B38 /* FBImageDownloader.swift */; };
 		A1916B28C3664341ACF68558 /* libPods-FBImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7E872691DF446A84F56AC7 /* libPods-FBImagePicker.a */; };
 /* End PBXBuildFile section */
 
@@ -29,19 +29,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3B24A21819BCC84500911E56 /* FBImageCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBImageCollectionViewController.swift; sourceTree = "<group>"; };
-		3B24A21A19BCEC7000911E56 /* FBUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBUtil.swift; sourceTree = "<group>"; };
+		3B24A21D19BCF0EF00911E56 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = sources/AppDelegate.swift; sourceTree = "<group>"; };
+		3B24A21E19BCF0EF00911E56 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "sources/Bridging-Header.h"; sourceTree = "<group>"; };
+		3B24A21F19BCF0EF00911E56 /* FBAlbumsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FBAlbumsTableViewController.swift; path = sources/FBAlbumsTableViewController.swift; sourceTree = "<group>"; };
+		3B24A22019BCF0EF00911E56 /* FBImageCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FBImageCollectionViewController.swift; path = sources/FBImageCollectionViewController.swift; sourceTree = "<group>"; };
+		3B24A22119BCF0EF00911E56 /* FBImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FBImageDownloader.swift; path = sources/FBImageDownloader.swift; sourceTree = "<group>"; };
+		3B24A22219BCF0EF00911E56 /* FBUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FBUtil.swift; path = sources/FBUtil.swift; sourceTree = "<group>"; };
 		3BE6C0D619BC798200232B38 /* FBImagePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBImagePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BE6C0DA19BC798200232B38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3BE6C0DB19BC798200232B38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BE6C0E019BC798200232B38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3BE6C0E219BC798200232B38 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3BE6C0E819BC798200232B38 /* FBImagePickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FBImagePickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BE6C0ED19BC798200232B38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BE6C0EE19BC798200232B38 /* FBImagePickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBImagePickerTests.swift; sourceTree = "<group>"; };
-		3BE6C0F819BC7B1E00232B38 /* FBAlbumsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBAlbumsTableViewController.swift; sourceTree = "<group>"; };
-		3BE6C0FA19BC7D7000232B38 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
-		3BE6C0FB19BCA73600232B38 /* FBImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBImageDownloader.swift; sourceTree = "<group>"; };
 		4D7E872691DF446A84F56AC7 /* libPods-FBImagePicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FBImagePicker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F152370E47764290B4D68E80 /* Pods-FBImagePicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBImagePicker.xcconfig"; path = "Pods/Pods-FBImagePicker.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,6 +65,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B24A21C19BCF0DD00911E56 /* sources */ = {
+			isa = PBXGroup;
+			children = (
+				3B24A21D19BCF0EF00911E56 /* AppDelegate.swift */,
+				3B24A21E19BCF0EF00911E56 /* Bridging-Header.h */,
+				3B24A21F19BCF0EF00911E56 /* FBAlbumsTableViewController.swift */,
+				3B24A22019BCF0EF00911E56 /* FBImageCollectionViewController.swift */,
+				3B24A22119BCF0EF00911E56 /* FBImageDownloader.swift */,
+				3B24A22219BCF0EF00911E56 /* FBUtil.swift */,
+			);
+			name = sources;
+			sourceTree = "<group>";
+		};
 		3BE6C0CD19BC798200232B38 = {
 			isa = PBXGroup;
 			children = (
@@ -88,15 +101,10 @@
 		3BE6C0D819BC798200232B38 /* FBImagePicker */ = {
 			isa = PBXGroup;
 			children = (
-				3BE6C0DB19BC798200232B38 /* AppDelegate.swift */,
-				3BE6C0F819BC7B1E00232B38 /* FBAlbumsTableViewController.swift */,
+				3B24A21C19BCF0DD00911E56 /* sources */,
 				3BE6C0DF19BC798200232B38 /* Main.storyboard */,
 				3BE6C0E219BC798200232B38 /* Images.xcassets */,
 				3BE6C0D919BC798200232B38 /* Supporting Files */,
-				3BE6C0FA19BC7D7000232B38 /* Bridging-Header.h */,
-				3BE6C0FB19BCA73600232B38 /* FBImageDownloader.swift */,
-				3B24A21819BCC84500911E56 /* FBImageCollectionViewController.swift */,
-				3B24A21A19BCEC7000911E56 /* FBUtil.swift */,
 			);
 			path = FBImagePicker;
 			sourceTree = "<group>";
@@ -268,11 +276,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BE6C0DC19BC798200232B38 /* AppDelegate.swift in Sources */,
-				3BE6C0F919BC7B1E00232B38 /* FBAlbumsTableViewController.swift in Sources */,
-				3BE6C0FC19BCA73600232B38 /* FBImageDownloader.swift in Sources */,
-				3B24A21919BCC84500911E56 /* FBImageCollectionViewController.swift in Sources */,
-				3B24A21B19BCEC7000911E56 /* FBUtil.swift in Sources */,
+				3B24A22619BCF0EF00911E56 /* FBImageDownloader.swift in Sources */,
+				3B24A22319BCF0EF00911E56 /* AppDelegate.swift in Sources */,
+				3B24A22519BCF0EF00911E56 /* FBImageCollectionViewController.swift in Sources */,
+				3B24A22419BCF0EF00911E56 /* FBAlbumsTableViewController.swift in Sources */,
+				3B24A22719BCF0EF00911E56 /* FBUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,7 +402,7 @@
 				INFOPLIST_FILE = FBImagePicker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "FBImagePicker/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "FBImagePicker/sources/Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -407,7 +415,7 @@
 				INFOPLIST_FILE = FBImagePicker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "FBImagePicker/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "FBImagePicker/sources/Bridging-Header.h";
 			};
 			name = Release;
 		};
