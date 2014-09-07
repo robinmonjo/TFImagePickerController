@@ -7,17 +7,17 @@
 //
 
 
-class RMPhotoCollectionViewController: UICollectionViewController {
+class FBImageCollectionViewController: UICollectionViewController {
 
-  var albumId: String = ""
   var photosMetadata: [[String:AnyObject]] = []
-  lazy var imageDownloader: RMImageDownloader = {
-    return RMImageDownloader()
+  var albumTitle: String = ""
+  lazy var imageDownloader: FBImageDownloader = {
+    return FBImageDownloader()
     }()
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    self.title = self.albumTitle
   }
   
   
@@ -27,7 +27,7 @@ class RMPhotoCollectionViewController: UICollectionViewController {
   
   override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PhotoCell", forIndexPath: indexPath) as UICollectionViewCell
-    cell.backgroundColor = UIColor.whiteColor()
+    cell.backgroundColor = UIColor.lightGrayColor()
     let imageView = cell.viewWithTag(100) as UIImageView
     let activityIndicator = cell.viewWithTag(200) as UIActivityIndicatorView
     activityIndicator.hidesWhenStopped = true

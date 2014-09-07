@@ -12,22 +12,23 @@ class FBAlbumsTableViewController: UITableViewController {
   
   var albumsMetadata: [[String:AnyObject]] = []
   var selectedAlbumPhotosMetadata: [[String:AnyObject]] = []
-  var selectedAlbumId: String = ""
-  var placeHolderImage: UIImage = UIImage()
-  lazy var imageDownloader: RMImageDownloader = {
-    return RMImageDownloader()
+  var selectedAlbumTitle = ""
+  
+  lazy var imageDownloader: FBImageDownloader = {
+    return FBImageDownloader()
     }()
+  
+  let IMAGE_VIEW_TAG = 100
+  let TEXT_LABEL_TAG = 200
+  let DETAILS_LABEL_TAG = 300
+  let SPINNER_TAG = 400
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(44, 44), false, 0.0);
-    self.placeHolderImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
     FBSession.openActiveSessionWithReadPermissions(["user_photos"], allowLoginUI: true, completionHandler: { (session, state, error) -> Void in
       if error != nil {
-        println("Failed to open FBSession \(error)")
+        println("\(DEBUG_PREFIX) \(error)")
         return
       }
       self.downloadAlbumdMetadata()
@@ -36,19 +37,14 @@ class FBAlbumsTableViewController: UITableViewController {
   
   func downloadAlbumdMetadata() {
     FBRequestConnection.startWithGraphPath("me/albums", completionHandler: { (connection, result, error) -> Void in
-      println(error)
-      println(result)
+      if error != nil {
+        println("\(DEBUG_PREFIX) \(error)")
+        return
+      }
       self.albumsMetadata = result.valueForKey("data") as [[String:AnyObject]]
       self.tableView.reloadData()
     })
   }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  
-  // MARK: - Table view data source
   
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return 1
@@ -58,41 +54,39 @@ class FBAlbumsTableViewController: UITableViewController {
     return self.albumsMetadata.count
   }
   
-
+  
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     var cell = tableView.dequeueReusableCellWithIdentifier("AlbumCell", forIndexPath: indexPath) as UITableViewCell
     
-    let imageView = cell.viewWithTag(100) as UIImageView
-    let textLabel = cell.viewWithTag(200) as UILabel
-    let detailsLabel = cell.viewWithTag(300) as UILabel
-    let activityIndicator = cell.viewWithTag(400) as UIActivityIndicatorView
-    activityIndicator.hidesWhenStopped = true
+    let imageView = cell.viewWithTag(IMAGE_VIEW_TAG) as UIImageView
+    let textLabel = cell.viewWithTag(TEXT_LABEL_TAG) as UILabel
+    let detailsLabel = cell.viewWithTag(DETAILS_LABEL_TAG) as UILabel
+    let spinner = cell.viewWithTag(SPINNER_TAG) as UIActivityIndicatorView
     
     var albumMetadata = self.albumsMetadata[indexPath.row]
     let albumName = albumMetadata["name"]! as String
-    if let albumPhotoCount = albumMetadata["count"] {
+    if let albumPhotoCount: AnyObject = albumMetadata["count"] {
       detailsLabel.text = "\(albumPhotoCount as Int)"
     } else {
       detailsLabel.text = ""
     }
     textLabel.text = albumName
-    imageView.image = self.placeHolderImage
     imageView.contentMode = UIViewContentMode.ScaleAspectFit
     cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
     
     
     //Get back url to album's cover photo
-    if let albumCoverPhoto = albumMetadata["cover_photo"] {
-      activityIndicator.startAnimating()
+    if let albumCoverPhoto: AnyObject = albumMetadata["cover_photo"] {
+      spinner.startAnimating()
       var path = "/\(albumCoverPhoto as String)"
       FBRequestConnection.startWithGraphPath(path, completionHandler: { (connection, result, error) -> Void in
         if error != nil {
-          println(error)
-          return;
+          println("\(DEBUG_PREFIX) \(error)")
+          return
         }
-        if let imageUrl = result["picture"] {
+        if let imageUrl: AnyObject? = result["picture"] {
           self.imageDownloader.downloadImageAtUrl(imageUrl as String, completion: {(image, error) -> Void in
-            activityIndicator.stopAnimating()
+            spinner.stopAnimating()
             if error != nil {
               println(error)
               return
@@ -100,10 +94,9 @@ class FBAlbumsTableViewController: UITableViewController {
             imageView.image = image
           })
         }
-        
       })
     }
-
+    
     return cell
   }
   
@@ -115,7 +108,8 @@ class FBAlbumsTableViewController: UITableViewController {
     
     tableView.userInteractionEnabled = false
     let albumId = self.albumsMetadata[indexPath.row]["id"]! as String
-    
+    let albumName = self.albumsMetadata[indexPath.row]["name"]! as String
+    self.selectedAlbumTitle = albumName
     let spinner = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
     spinner.frame = CGRectMake(0, 0, 24, 24)
     let cell = tableView.cellForRowAtIndexPath(indexPath)
@@ -129,7 +123,7 @@ class FBAlbumsTableViewController: UITableViewController {
       tableView.userInteractionEnabled = true
       cell!.accessoryView = oldView
       if error != nil {
-        println(error)
+        println("\(DEBUG_PREFIX) \(error)")
         return
       }
       println(result)
@@ -140,8 +134,9 @@ class FBAlbumsTableViewController: UITableViewController {
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
     if segue.identifier == "ALBUMS_TO_PHOTOS" {
-      let vc = segue.destinationViewController as RMPhotoCollectionViewController
+      let vc = segue.destinationViewController as FBImageCollectionViewController
       vc.photosMetadata = self.selectedAlbumPhotosMetadata
+      vc.albumTitle = self.selectedAlbumTitle
     }
   }
   

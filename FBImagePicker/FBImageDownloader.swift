@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Robin Monjo. All rights reserved.
 //
 
-class RMImageDownloader {
+class FBImageDownloader {
   
   lazy var operationQueue: NSOperationQueue = {
     return NSOperationQueue()
