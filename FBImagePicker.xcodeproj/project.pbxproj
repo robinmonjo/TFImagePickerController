@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B24A21919BCC84500911E56 /* RMPhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B24A21819BCC84500911E56 /* RMPhotoCollectionViewController.swift */; };
 		3BE6C0DC19BC798200232B38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE6C0DB19BC798200232B38 /* AppDelegate.swift */; };
-		3BE6C0DE19BC798200232B38 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE6C0DD19BC798200232B38 /* ViewController.swift */; };
 		3BE6C0E119BC798200232B38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BE6C0DF19BC798200232B38 /* Main.storyboard */; };
 		3BE6C0E319BC798200232B38 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BE6C0E219BC798200232B38 /* Images.xcassets */; };
 		3BE6C0EF19BC798200232B38 /* FBImagePickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE6C0EE19BC798200232B38 /* FBImagePickerTests.swift */; };
+		3BE6C0F919BC7B1E00232B38 /* FBAlbumsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE6C0F819BC7B1E00232B38 /* FBAlbumsTableViewController.swift */; };
+		3BE6C0FC19BCA73600232B38 /* RMImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE6C0FB19BCA73600232B38 /* RMImageDownloader.swift */; };
+		A1916B28C3664341ACF68558 /* libPods-FBImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7E872691DF446A84F56AC7 /* libPods-FBImagePicker.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,15 +28,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B24A21819BCC84500911E56 /* RMPhotoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RMPhotoCollectionViewController.swift; sourceTree = "<group>"; };
 		3BE6C0D619BC798200232B38 /* FBImagePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBImagePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BE6C0DA19BC798200232B38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BE6C0DB19BC798200232B38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3BE6C0DD19BC798200232B38 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3BE6C0E019BC798200232B38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3BE6C0E219BC798200232B38 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3BE6C0E819BC798200232B38 /* FBImagePickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FBImagePickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BE6C0ED19BC798200232B38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BE6C0EE19BC798200232B38 /* FBImagePickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBImagePickerTests.swift; sourceTree = "<group>"; };
+		3BE6C0F819BC7B1E00232B38 /* FBAlbumsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBAlbumsTableViewController.swift; sourceTree = "<group>"; };
+		3BE6C0FA19BC7D7000232B38 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		3BE6C0FB19BCA73600232B38 /* RMImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RMImageDownloader.swift; sourceTree = "<group>"; };
+		4D7E872691DF446A84F56AC7 /* libPods-FBImagePicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FBImagePicker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F152370E47764290B4D68E80 /* Pods-FBImagePicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBImagePicker.xcconfig"; path = "Pods/Pods-FBImagePicker.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1916B28C3664341ACF68558 /* libPods-FBImagePicker.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +69,8 @@
 				3BE6C0D819BC798200232B38 /* FBImagePicker */,
 				3BE6C0EB19BC798200232B38 /* FBImagePickerTests */,
 				3BE6C0D719BC798200232B38 /* Products */,
+				F152370E47764290B4D68E80 /* Pods-FBImagePicker.xcconfig */,
+				5AB28A3FF6D24C95B2BA400B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,10 +87,13 @@
 			isa = PBXGroup;
 			children = (
 				3BE6C0DB19BC798200232B38 /* AppDelegate.swift */,
-				3BE6C0DD19BC798200232B38 /* ViewController.swift */,
+				3BE6C0F819BC7B1E00232B38 /* FBAlbumsTableViewController.swift */,
 				3BE6C0DF19BC798200232B38 /* Main.storyboard */,
 				3BE6C0E219BC798200232B38 /* Images.xcassets */,
 				3BE6C0D919BC798200232B38 /* Supporting Files */,
+				3BE6C0FA19BC7D7000232B38 /* Bridging-Header.h */,
+				3BE6C0FB19BCA73600232B38 /* RMImageDownloader.swift */,
+				3B24A21819BCC84500911E56 /* RMPhotoCollectionViewController.swift */,
 			);
 			path = FBImagePicker;
 			sourceTree = "<group>";
@@ -109,6 +123,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		5AB28A3FF6D24C95B2BA400B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D7E872691DF446A84F56AC7 /* libPods-FBImagePicker.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -116,9 +138,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3BE6C0F219BC798200232B38 /* Build configuration list for PBXNativeTarget "FBImagePicker" */;
 			buildPhases = (
+				899D0B99796C446086CCA992 /* Check Pods Manifest.lock */,
 				3BE6C0D219BC798200232B38 /* Sources */,
 				3BE6C0D319BC798200232B38 /* Frameworks */,
 				3BE6C0D419BC798200232B38 /* Resources */,
+				3082352440434D03A0684421 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -203,13 +227,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3082352440434D03A0684421 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-FBImagePicker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		899D0B99796C446086CCA992 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3BE6C0D219BC798200232B38 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BE6C0DE19BC798200232B38 /* ViewController.swift in Sources */,
 				3BE6C0DC19BC798200232B38 /* AppDelegate.swift in Sources */,
+				3BE6C0F919BC7B1E00232B38 /* FBAlbumsTableViewController.swift in Sources */,
+				3BE6C0FC19BCA73600232B38 /* RMImageDownloader.swift in Sources */,
+				3B24A21919BCC84500911E56 /* RMPhotoCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,23 +383,27 @@
 		};
 		3BE6C0F319BC798200232B38 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F152370E47764290B4D68E80 /* Pods-FBImagePicker.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = FBImagePicker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "FBImagePicker/Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		3BE6C0F419BC798200232B38 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F152370E47764290B4D68E80 /* Pods-FBImagePicker.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = FBImagePicker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "FBImagePicker/Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -397,6 +460,7 @@
 				3BE6C0F419BC798200232B38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3BE6C0F519BC798200232B38 /* Build configuration list for PBXNativeTarget "FBImagePickerTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +469,7 @@
 				3BE6C0F719BC798200232B38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
