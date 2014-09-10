@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.homepage     = 'https://github.com/robinmonjo/TFImagePickerController'
   s.author       = { 'Robin Monjo' => 'robinmonjo@gmail.com' }
   s.requires_arc = true
-  s.source       = { :git => 'https://github.com/robinmonjo/TFImagePickerController.git', :tag => '0.1.0' }
+  s.source       = { :git => 'https://github.com/robinmonjo/TFImagePickerController.git', :tag => '0.1.2' }
   s.source_files = 'Library/*.swift'
   s.resources    = 'Library/TFImagePickerController.storyboard'
   s.dependency 'AFNetworking', '~> 2.4'
