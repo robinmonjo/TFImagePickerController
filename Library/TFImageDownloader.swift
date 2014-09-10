@@ -1,12 +1,12 @@
 //
-//  RMImageDownloader.swift
-//  FBImagePicker
+//  TFImageDownloader.swift
+//  TFImagePickerController
 //
 //  Created by Robin Monjo on 07/09/14.
 //  Copyright (c) 2014 Robin Monjo. All rights reserved.
 //
 
-class FBImageDownloader {
+class TFImageDownloader {
   
   lazy var operationQueue: NSOperationQueue = {
     return NSOperationQueue()

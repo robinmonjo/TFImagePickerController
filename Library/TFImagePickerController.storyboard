@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.9" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ae6-4N-CCd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.9" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
     </dependencies>
@@ -7,7 +7,7 @@
         <!--Albums-->
         <scene sceneID="OQ6-z2-Fbg">
             <objects>
-                <tableViewController id="3s9-xT-BDY" customClass="FBAlbumsTableViewController" customModule="FBImagePicker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TFImagePickerController" id="3s9-xT-BDY" customClass="TFImagePickerController" customModule="FBImagePicker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="stN-QF-OI4">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -50,7 +50,13 @@
                             <outlet property="delegate" destination="3s9-xT-BDY" id="3hY-Lt-TPu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Albums" id="ic1-0T-6dA"/>
+                    <navigationItem key="navigationItem" title="Albums" id="ic1-0T-6dA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="c90-6m-iLc">
+                            <connections>
+                                <action selector="cancelTapped:" destination="3s9-xT-BDY" id="jdG-Fy-kYV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="u1u-q5-So8" kind="show" identifier="ALBUMS_TO_PHOTOS" id="uvH-za-flK"/>
                     </connections>
@@ -62,7 +68,7 @@
         <!--Image Collection View Controller-->
         <scene sceneID="WiF-lf-hAQ">
             <objects>
-                <collectionViewController id="u1u-q5-So8" customClass="FBImageCollectionViewController" customModule="FBImagePicker" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="u1u-q5-So8" customClass="TFImageCollectionViewController" customModule="FBImagePicker" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" id="iEt-gf-nfy">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,22 +107,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7dj-zy-67h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1321" y="32"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="SfO-dX-dbi">
-            <objects>
-                <navigationController id="Ae6-4N-CCd" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HP4-Ki-Dwu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="3s9-xT-BDY" kind="relationship" relationship="rootViewController" id="nYb-k4-fbu"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ce5-4x-7ib" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-158" y="31.999999999999996"/>
         </scene>
     </scenes>
 </document>

@@ -1,6 +1,6 @@
 //
-//  FBAlbumsTableViewController.swift
-//  FBImagePicker
+//  TFImagePickerController.swift
+//  TFImagePickerController
 //
 //  Created by Robin Monjo on 07/09/14.
 //  Copyright (c) 2014 Robin Monjo. All rights reserved.
@@ -8,37 +8,48 @@
 
 import UIKit
 
-class FBAlbumsTableViewController: UITableViewController {
+class TFImagePickerController: UITableViewController {
   
-  var albumsMetadata: [[String:AnyObject]] = []
-  var selectedAlbumPhotosMetadata: [[String:AnyObject]] = []
-  var selectedAlbumTitle = ""
+  class func imagePickerController() -> TFImagePickerController {
+    let storyboard = UIStoryboard(name: "TFImagePickerController", bundle: nil)
+    return storyboard.instantiateViewControllerWithIdentifier("TFImagePickerController") as TFImagePickerController
+  }
   
-  lazy var imageDownloader: FBImageDownloader = {
-    return FBImageDownloader()
+  private var albumsMetadata: [[String:AnyObject]] = []
+  private var selectedAlbumPhotosMetadata: [[String:AnyObject]] = []
+  private var selectedAlbumTitle = ""
+  
+  var delegate: TFImagePickerControllerDelegate?
+  
+  private lazy var imageDownloader: TFImageDownloader = {
+    return TFImageDownloader()
     }()
   
-  let IMAGE_VIEW_TAG = 100
-  let TEXT_LABEL_TAG = 200
-  let DETAILS_LABEL_TAG = 300
-  let SPINNER_TAG = 400
+  private let IMAGE_VIEW_TAG = 100
+  private let TEXT_LABEL_TAG = 200
+  private let DETAILS_LABEL_TAG = 300
+  private let SPINNER_TAG = 400
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    FBSession.openActiveSessionWithReadPermissions(["user_photos"], allowLoginUI: true, completionHandler: { (session, state, error) -> Void in
-      if error != nil {
-        println("\(DEBUG_PREFIX) \(error)")
-        return
-      }
+    if !FBSession.activeSession().isOpen {
+      FBSession.openActiveSessionWithReadPermissions(["user_photos"], allowLoginUI: true, completionHandler: { (session, state, error) -> Void in
+        if error != nil {
+          printError(error)
+          return
+        }
+        self.downloadAlbumdMetadata()
+      })
+    } else {
       self.downloadAlbumdMetadata()
-    })
+    }
   }
   
-  func downloadAlbumdMetadata() {
+  private func downloadAlbumdMetadata() {
     FBRequestConnection.startWithGraphPath("me/albums", completionHandler: { (connection, result, error) -> Void in
       if error != nil {
-        println("\(DEBUG_PREFIX) \(error)")
+        printError(error)
         return
       }
       self.albumsMetadata = result.valueForKey("data") as [[String:AnyObject]]
@@ -81,7 +92,7 @@ class FBAlbumsTableViewController: UITableViewController {
       var path = "/\(albumCoverPhoto as String)"
       FBRequestConnection.startWithGraphPath(path, completionHandler: { (connection, result, error) -> Void in
         if error != nil {
-          println("\(DEBUG_PREFIX) \(error)")
+          printError(error)
           return
         }
         if let imageUrl: AnyObject? = result["picture"] {
@@ -123,10 +134,9 @@ class FBAlbumsTableViewController: UITableViewController {
       tableView.userInteractionEnabled = true
       cell!.accessoryView = oldView
       if error != nil {
-        println("\(DEBUG_PREFIX) \(error)")
+        printError(error)
         return
       }
-      println(result)
       self.selectedAlbumPhotosMetadata = result.valueForKey("data") as [[String:AnyObject]]
       self.performSegueWithIdentifier("ALBUMS_TO_PHOTOS", sender: self)
     })
@@ -134,10 +144,20 @@ class FBAlbumsTableViewController: UITableViewController {
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
     if segue.identifier == "ALBUMS_TO_PHOTOS" {
-      let vc = segue.destinationViewController as FBImageCollectionViewController
+      let vc = segue.destinationViewController as TFImageCollectionViewController
       vc.photosMetadata = self.selectedAlbumPhotosMetadata
       vc.albumTitle = self.selectedAlbumTitle
+      vc.delegate = self.delegate
+      vc.imagePickerController = self
     }
+  }
+  
+  @IBAction func cancelTapped(sender: AnyObject) {
+    self.dismissViewControllerAnimated(true, completion: {() in
+      if self.delegate != nil {
+        self.delegate!.imagePickerControllerDidCancel(self)
+      }
+    })
   }
   
 }

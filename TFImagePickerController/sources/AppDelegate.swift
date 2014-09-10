@@ -9,14 +9,36 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, TFImagePickerControllerDelegate {
   
   var window: UIWindow?
   
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
+    self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+    
+    let imagePickerController = TFImagePickerController.imagePickerController()
+    imagePickerController.delegate = self
+    let navigationController = UINavigationController(rootViewController: imagePickerController)
+    
+    self.window!.rootViewController = UIViewController()
+    
+    self.window!.makeKeyAndVisible()
+    
+    self.window!.rootViewController!.presentViewController(navigationController, animated: false, completion: {})
+
     return true
+  }
+  
+  func imagePickerController(controller: TFImagePickerController!, didPickImage image: UIImage, withMetadata metadata: [String:AnyObject]) {
+    println(image)
+    println(metadata)
+    controller.dismissViewControllerAnimated(true, completion: {})
+  }
+  
+  func imagePickerControllerDidCancel(controller: TFImagePickerController!) {
+    println("Cancelled")
   }
   
   func applicationWillResignActive(application: UIApplication) {
