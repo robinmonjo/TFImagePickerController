@@ -2,7 +2,8 @@
 
 
 UIImagePickerController for Facebook pictures in Swift. It's available as a Cocoapod but **it's not working**
-since it's a `swift` pod relying on `Objective-C` pod (`Facebook-iOS-SDK` and `AFNetworking`).
+since it's a `swift` pod relying on `Objective-C` pods (`Facebook-iOS-SDK` and `AFNetworking`). If there is a hack for that,
+feel free to let me know.
 
 ![Alt text](https://dl.dropboxusercontent.com/u/6543817/record-TFImagePickerController.gif)
 
@@ -13,9 +14,9 @@ since it's a `swift` pod relying on `Objective-C` pod (`Facebook-iOS-SDK` and `A
 // [...]
 
 let imagePickerController = TFImagePickerController.imagePickerController()
-imagePickerController.delegate = self  // seelf should implement the TFImagePickerControllerDelegate protocol
+imagePickerController.delegate = self  // self should implement the TFImagePickerControllerDelegate protocol
 let navigationController = UINavigationController(rootViewController: imagePickerController)
-self.presentViewController(navigationController, animated: false, completion: {})
+self.presentViewController(navigationController, animated: true, completion: {})
 
 // [...]
 
