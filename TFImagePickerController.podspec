@@ -10,4 +10,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/robinmonjo/TFImagePickerController.git', :tag => '0.1.0' }
   s.source_files = 'Library/*.swift'
   s.resources    = 'Library/TFImagePickerController.storyboard'
+  s.dependency 'AFNetworking', '~> 2.4'
+  s.dependency 'Facebook-iOS-SDK', '~> 3.17'
 end
