@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Robin Monjo. All rights reserved.
 //
 
+import UIKit
 
 class TFImageCollectionViewController: UICollectionViewController {
 

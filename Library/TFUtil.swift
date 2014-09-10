@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Robin Monjo. All rights reserved.
 //
 
+import UIKit
+
 let DEBUG_PREFIX = "[TFImagePickerController][ERROR]:"
 
 func printError(error: NSError) {
